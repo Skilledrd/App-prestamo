@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Préstamo Web</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Mi Préstamo Web</h1>
+    <nav>
+      <button onclick="mostrarSeccion('clientes')">Clientes</button>
+      <button onclick="mostrarSeccion('prestamos')">Préstamos</button>
+      <button onclick="mostrarSeccion('activos')">Préstamos Activos</button>
+      <button onclick="mostrarSeccion('historial')">Historial de Préstamos</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="vista-clientes">
+      <h2>Registrar Cliente</h2>
+      <form id="formCliente">
+        <input type="text" id="nombre" placeholder="Nombre completo" required />
+        <input type="text" id="cedula" placeholder="Cédula" required/>
+        <input type="tel" id="telefono" placeholder="Teléfono" />
+        <select id="estado">
+          <option value="activo" selected>Activo</option>
+          <option value="inactivo">Inactivo</option>
+        </select>
+        <button type="submit">Guardar Cliente</button>
+      </form>
+      <h2>Clientes Registrados</h2>
+      <ul id="clientes"></ul>
+    </section>
+
+    <section id="vista-prestamos" style="display:none;">
+      <h2>Registrar Préstamo</h2>
+      <form id="formPrestamo">
+        <select id="clienteCedula" required></select>
+        <input type="number" id="monto" placeholder="Monto del préstamo" required />
+        <input type="number" id="interes" placeholder="Interés (%)" required />
+        <input type="number" id="cuotas" placeholder="Cantidad de cuotas" required />
+        <input type="date" id="fecha" required />
+        <select id="frecuencia" required>
+          <option value="mensual">Mensual</option>
+          <option value="quincenal">Quincenal</option>
+          <option value="semanal">Semanal</option>
+        </select>
+        <button type="submit">Guardar Préstamo</button>
+      </form>
+      <h2>Préstamos Registrados (ultimos 3)</h2>
+      <ul id="prestamos"></ul>
+    </section>
+
+    <section id="vista-activos" style="display:none;">
+      <h2>Préstamos Activos</h2>
+      <ul id="prestamos-activos"></ul>
+    </section>
+
+    <section id="vista-historial" style="display:none;">
+      <h2>Historial de Prestamos</h2>
+      <ul id="prestamos-historial"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
